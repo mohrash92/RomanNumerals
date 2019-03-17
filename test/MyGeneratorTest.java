@@ -12,4 +12,12 @@ class MyGeneratorTest {
 
         assertEquals("I",result);
     }
+
+    @Test
+    public void testGeneratorReturnsCorrectNumeralFor2() {
+        MyGenerator test = new MyGenerator();
+        String result = test.generate(2);
+
+        assertEquals("II",result);
+    }
 }
