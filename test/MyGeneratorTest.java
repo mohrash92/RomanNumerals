@@ -1,39 +1,28 @@
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyGeneratorTest {
 
-    @Test
-    public void testGeneratorReturnsCorrectNumeralFor1() {
-
-        MyGenerator test = new MyGenerator();
-        String result = test.generate(1);
-
-        assertEquals("I",result);
+    private static Collection<Object[]> provideIntegersForMyGenerator() {
+        return Arrays.asList(new Object[][]{
+                {1, "I"},
+                {2, "II"},
+                {3, "III"},
+                {4, "IV"},
+                {5, "V"}
+        });
     }
 
-    @Test
-    public void testGeneratorReturnsCorrectNumeralFor2() {
-        MyGenerator test = new MyGenerator();
-        String result = test.generate(2);
+    @ParameterizedTest
+    @MethodSource("provideIntegersForMyGenerator")
+    public void testGeneratorReturnsCorrectNumeral(int input, String expected) {
 
-        assertEquals("II",result);
-    }
-    
-    @Test
-    public void testGeneratorReturnsCorrectNumeralFor3() {
-        MyGenerator test = new MyGenerator();
-        String result = test.generate(3);
-
-        assertEquals("III",result);
-    }
-
-    @Test
-    public void testGeneratorReturnsCorrectNumeralFor4() {
-        MyGenerator test = new MyGenerator();
-        String result = test.generate(4);
-
-        assertEquals("IV",result);
+        String result = new MyGenerator().generate(input);
+        assertEquals(expected, result);
     }
 }
