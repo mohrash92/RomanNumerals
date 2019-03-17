@@ -28,4 +28,12 @@ class MyGeneratorTest {
 
         assertEquals("III",result);
     }
+
+    @Test
+    public void testGeneratorReturnsCorrectNumeralFor4() {
+        MyGenerator test = new MyGenerator();
+        String result = test.generate(4);
+
+        assertEquals("IV",result);
+    }
 }
