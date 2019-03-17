@@ -5,6 +5,8 @@ public class MyGenerator implements RomanNumeralGenerator{
             romanNumeral = "I";
         } else if (number == 2) {
             romanNumeral = "II";
+        } else if (number == 3) {
+            romanNumeral = "III";
         }
 
         return romanNumeral;
