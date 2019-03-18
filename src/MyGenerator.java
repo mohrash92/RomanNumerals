@@ -5,7 +5,7 @@ public class MyGenerator implements RomanNumeralGenerator {
     HashMap<Integer, String> hmap = new HashMap<Integer, String>();
 
     public String generate(int number) {
-        if (number <= 0) return null;
+        if (number <= 0 || number >= 3999) return null;
 
         hmap.put(1, "I");
         hmap.put(4, "IV");
