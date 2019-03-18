@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -26,8 +27,13 @@ class MyGeneratorTest {
     @ParameterizedTest
     @MethodSource("provideIntegersForMyGenerator")
     public void testGeneratorReturnsCorrectNumeral(int input, String expected) {
-
         String result = new MyGenerator().generate(input);
         assertEquals(expected, result);
+    }
+
+    @Test
+    public void testGeneratorReturnsNullWhenZero() {
+        String result = new MyGenerator().generate(0);
+        assertEquals(null, result);
     }
 }
