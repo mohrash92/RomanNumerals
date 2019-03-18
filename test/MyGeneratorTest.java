@@ -32,8 +32,14 @@ class MyGeneratorTest {
     }
 
     @Test
-    public void testGeneratorReturnsNullWhenZero() {
+    public void testGeneratorReturnsNullWhenBelow1() {
         String result = new MyGenerator().generate(0);
+        assertEquals(null, result);
+    }
+
+    @Test
+    public void testGeneratorReturnsNullWhenAbove3999() {
+        String result = new MyGenerator().generate(4000);
         assertEquals(null, result);
     }
 }
